@@ -5,6 +5,7 @@ import { Router, Route, usePathname, NAV_ITEMS } from '@/app/router';
 import { Panel } from '@/components/ui/panel';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPage';
+import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
 import { TrainingLabPage } from '@/features/training/TrainingLabPage';
 
 export function WorkspaceLayout() {
@@ -104,11 +105,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const ObservatoryPage = stubPage(
-  'Neural Observatory',
-  'Inspect neurons, activations, weights, and signal propagation.',
-  'page-observatory',
-);
 const DecisionBoundaryPage = stubPage(
   'Decision Boundary',
   'Explore 2D classification boundaries trained in the browser.',
