@@ -15,11 +15,14 @@ import { ExperimentsPage } from '@/features/experiments/ExperimentsPage';
 import { ModelComparisonPage } from '@/features/model-comparison/ModelComparisonPage';
 import { DecisionBoundaryPage } from '@/features/decision-boundary/DecisionBoundaryPage';
 import { SettingsPage } from '@/features/settings/SettingsPage';
+import { CommandPalette } from '@/components/command-palette/CommandPalette';
+import { useCommandPalette } from '@/hooks/useCommandPalette';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [mobileDrawer, setMobileDrawer] = React.useState(false);
   const _pathname = usePathname();
+  const { isOpen, toggle } = useCommandPalette();
 
   return (
     <Router>
@@ -45,11 +48,12 @@ export function WorkspaceLayout() {
         <div className="flex-1 flex flex-col overflow-hidden relative">
           <Topbar
             onOpenMenu={() => setIsCollapsed((c) => !c)}
-            onOpenCommandPalette={() => {}}
+            onOpenCommandPalette={toggle}
             onSave={() => {}}
             onExport={() => {}}
             onSettings={() => {}}
           />
+          <CommandPalette isOpen={isOpen} onClose={toggle} />
           <main className="flex-1 overflow-x-auto overflow-y-hidden bg-synapse-background">
             <Panel className="mx-6 my-4 h-[calc(100vh-4rem)] flex flex-col">
               <div className="flex-1 overflow-y-auto p-6">
