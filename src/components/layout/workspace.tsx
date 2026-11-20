@@ -8,6 +8,7 @@ import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPag
 import { WeightExplorerPage } from '@/features/weight-explorer/WeightExplorerPage';
 import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
 import { TrainingLabPage } from '@/features/training/TrainingLabPage';
+import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -106,11 +107,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const DigitRecognitionPage = stubPage(
-  'Digit Recognition',
-  'Draw digits and classify them with a local model.',
-  'page-digit-recognition',
-);
 const DatasetsPage = stubPage(
   'Dataset Lab',
   'Generate and inspect machine learning datasets.',
