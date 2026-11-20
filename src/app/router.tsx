@@ -50,7 +50,7 @@ export function Route({
   path: string;
   children: ReactNode;
 }) {
-  const { pathname, isActive } = useRouter();
+  const { _pathname, isActive } = useRouter();
   if (!isActive(path)) {
     return null;
   }
