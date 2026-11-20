@@ -11,6 +11,7 @@ import { TrainingLabPage } from '@/features/training/TrainingLabPage';
 import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
 import { DatasetsPage } from '@/features/datasets/DatasetsPage';
 import { ExperimentsPage } from '@/features/experiments/ExperimentsPage';
+import { ModelComparisonPage } from '@/features/model-comparison/ModelComparisonPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -109,11 +110,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const ModelComparisonPage = stubPage(
-  'Model Comparison',
-  'Compare multiple network architectures and training runs.',
-  'page-model-comparison',
-);
 const SettingsPage = stubPage(
   'Settings',
   'Configure appearance, animation, and training defaults.',
