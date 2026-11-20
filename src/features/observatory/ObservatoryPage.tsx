@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNetworkStore } from '@/stores/networkStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 import { Play, Eye, Cpu } from 'lucide-react';
 import { allDatasets } from '@/lib/datasets/generators';
 
@@ -28,7 +28,7 @@ export function ObservatoryPage() {
     layer: number;
     neuron: number;
   } | null>(null);
-  const [signalId, setSignalId] = React.useState(0);
+  const [_signalId, setSignalId] = React.useState(0);
 
   const datasets = allDatasets();
   const selectedDataset = datasets.find((d) => d.id === datasetId);
