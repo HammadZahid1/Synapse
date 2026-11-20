@@ -34,6 +34,28 @@ export function DecisionBoundaryPage() {
   const selectedDataset = datasets.find((d) => d.id === datasetId);
   const ds = selectedDataset ? selectedDataset.generate() : null;
 
+  const drawPoints = (ctx: CanvasRenderingContext2D) => {
+    if (!ds) return;
+    const size = GRID;
+    ds.inputs.forEach((p, i) => {
+      const cls = ds!.targets[i][0];
+      const px = ((p[0] + RANGE) / (2 * RANGE)) * size;
+      const py = ((RANGE - p[1]) / (2 * RANGE)) * size;
+      ctx.beginPath();
+      ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = cls > 0.5 ? '#a855f7' : '#00f3ff';
+      ctx.fill();
+      ctx.strokeStyle = '#050505';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      if (hover && hover.x === p[0] && hover.y === p[1]) {
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+      }
+    });
+  };
+
   const computeBoundary = () => {
     if (!network || !ds) return;
     // Configure network for 2D binary classification
@@ -76,28 +98,6 @@ export function DecisionBoundaryPage() {
     if (!ds || !network) return;
     computeBoundary();
   }, [ds, datasetId, network, hiddenSize]);
-
-  const drawPoints = (ctx: CanvasRenderingContext2D) => {
-    if (!ds) return;
-    const size = GRID;
-    ds.inputs.forEach((p, i) => {
-      const cls = ds!.targets[i][0];
-      const px = ((p[0] + RANGE) / (2 * RANGE)) * size;
-      const py = ((RANGE - p[1]) / (2 * RANGE)) * size;
-      ctx.beginPath();
-      ctx.arc(px, py, 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = cls > 0.5 ? '#a855f7' : '#00f3ff';
-      ctx.fill();
-      ctx.strokeStyle = '#050505';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      if (hover && hover.x === p[0] && hover.y === p[1]) {
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
-      }
-    });
-  };
 
   const handleTrain = async () => {
     if (!network || !ds) return;
