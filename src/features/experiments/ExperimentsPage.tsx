@@ -3,7 +3,7 @@ import { useNavigate } from '@/app/router';
 import { useExperimentStore } from '@/stores/experimentStore';
 import { useNetworkStore } from '@/stores/networkStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
 import { Copy, Trash2, RefreshCw } from 'lucide-react';
 
 export function ExperimentsPage() {
