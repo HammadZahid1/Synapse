@@ -9,7 +9,7 @@ import {
   flatten,
 } from '@/lib/math/matrix';
 import { NeuralNetwork } from './network';
-import { DenseLayer, denseForward } from './dense';
+import { DenseLayer } from './dense';
 import { getLoss, LossName } from './loss';
 
 export interface LayerGradients {
