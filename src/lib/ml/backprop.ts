@@ -40,11 +40,9 @@ export function backpropagate(
   const layers = (network as any).layers as unknown as DenseLayer[];
 
   // Access cached forward state
-  const zs: Matrix[] = [];
   const activations: Matrix[] = [columnVector(input)];
   for (const layer of layers) {
-    if (layer.lastOutput) activations.push(copyMatrix(layer.lastOutput));
-    if (layer.lastZ) zs.push(copyMatrix(layer.lastZ));
+    activations.push(copyMatrix(layer.lastOutput!));
   }
 
   const gradients: LayerGradients[] = new Array(layerCount);
@@ -54,7 +52,7 @@ export function backpropagate(
   const outputLayer = layers[layerCount - 1];
   let delta = multiply(
     outputLossGrad,
-    outputLayer.activation.derivativeMatrix(zs[zs.length - 1]),
+    outputLayer.activation.derivativeMatrix(activations[layerCount]),
   );
 
   gradients[layerCount - 1] = {
@@ -68,7 +66,7 @@ export function backpropagate(
     const currentLayer = layers[l];
     delta = multiply(
       dot(transpose(nextLayer.weights), delta),
-      currentLayer.activation.derivativeMatrix(zs[l]),
+      currentLayer.activation.derivativeMatrix(activations[l + 1]),
     );
     gradients[l] = {
       weights: dot(delta, transpose(activations[l])),
