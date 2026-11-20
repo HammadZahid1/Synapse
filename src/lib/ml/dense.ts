@@ -4,7 +4,6 @@ import {
   zeros,
   dot,
   add,
-  transpose,
 } from '@/lib/math/matrix';
 import { ActivationFunction, getActivation, ActivationName } from './activations';
 
