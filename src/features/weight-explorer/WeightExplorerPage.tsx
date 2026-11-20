@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNetworkStore } from '@/stores/networkStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 import { mean, standardDeviation, median, min as mathMin, max as mathMax, flatten } from '@/lib/math/matrix';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
@@ -198,7 +198,7 @@ function WeightHistogram({ values }: { values: number[] }) {
     const idx = Math.min(bins - 1, Math.floor(((v / absMax) + 1) / 2 * bins));
     counts[idx]++;
   }
-  const maxCount = Math.max(...counts);
+  const _maxCount = Math.max(...counts);
 
   return (
     <ResponsiveContainer width="100%" height="100%">
