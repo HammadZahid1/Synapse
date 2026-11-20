@@ -33,7 +33,7 @@ class IDBStorage {
       const request = indexedDB.open(this.dbName, this.version);
       request.onerror = () => reject(request.error);
       request.onsuccess = () => resolve(request.result);
-      request.onupgradeneeded = (event) => {
+      request.onupgradeneeded = (_event) => {
         const db = request.result;
         if (!db.objectStoreNames.contains('experiments')) {
           db.createObjectStore('experiments', { keyPath: 'id' });
@@ -41,7 +41,6 @@ class IDBStorage {
         if (!db.objectStoreNames.contains('preferences')) {
           db.createObjectStore('preferences', { keyPath: 'key' });
         }
-        (event as unknown as { target?: { result?: IDBDatabase } });
       };
     });
     return this.dbPromise;
