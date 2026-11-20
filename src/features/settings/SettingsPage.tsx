@@ -3,8 +3,8 @@ import { useSettingsStore } from '@/stores/settingsStore';
 import { useExperimentStore } from '@/stores/experimentStore';
 import { useUIStore } from '@/stores/uiStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
-import { RotateCw, Trash2, Save, AlertCircle } from 'lucide-react';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
+import { RotateCw, Trash2, Save } from 'lucide-react';
 
 export function SettingsPage() {
   const { settings, updateSettings, resetSettings, exportSettings, importSettings } = useSettingsStore();
