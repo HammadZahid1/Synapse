@@ -13,15 +13,6 @@ export interface RegressionDataset {
   description: string;
 }
 
-function shuffle<T>(array: T[]): T[] {
-  const result = array.slice();
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
 export function linearRegressionDataset(options: { count?: number; noise?: number; slope?: number; intercept?: number } = {}): RegressionDataset {
   const count = options.count ?? 100;
   const noise = options.noise ?? 0.1;
@@ -148,7 +139,7 @@ export function twoMoonsDataset(options: { count?: number; noise?: number } = {}
     const outer = i >= half;
     const dx = outer ? -0.5 : 0.5;
     const x = Math.cos(t) + dx + (Math.random() - 0.5) * 2 * noise;
-    const y = Math.sin(t) - (outer ? 0 : 0) + (Math.random() - 0.5) * 2 * noise - (outer ? 0 : 0);
+    const _y = Math.sin(t) - (outer ? 0 : 0) + (Math.random() - 0.5) * 2 * noise - (outer ? 0 : 0);
     const yBase = Math.sin(t) - (outer ? 0 : 0);
     inputs.push([x, yBase + (Math.random() - 0.5) * 2 * noise]);
     targets.push([outer ? 1 : 0]);
