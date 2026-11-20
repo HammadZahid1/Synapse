@@ -31,7 +31,7 @@ describe('backpropagation', () => {
 
     // Finite difference check on one output weight
     const eps = 1e-6;
-    const w0 = net.getLayerConfig(0);
+    const _w0 = net.getLayerConfig(0);
     const original = net.getWeights()[1].weights[0][0];
     const lossAt = (w: number) => {
       const weights = net.getWeights();
