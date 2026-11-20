@@ -5,6 +5,7 @@ import { Router, Route, usePathname, NAV_ITEMS } from '@/app/router';
 import { Panel } from '@/components/ui/panel';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPage';
+import { WeightExplorerPage } from '@/features/weight-explorer/WeightExplorerPage';
 import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
 import { TrainingLabPage } from '@/features/training/TrainingLabPage';
 
@@ -109,11 +110,6 @@ const DecisionBoundaryPage = stubPage(
   'Decision Boundary',
   'Explore 2D classification boundaries trained in the browser.',
   'page-decision-boundary',
-);
-const WeightExplorerPage = stubPage(
-  'Weight Explorer',
-  'Inspect weight matrices, bias vectors, and distributions.',
-  'page-weight-explorer',
 );
 const DigitRecognitionPage = stubPage(
   'Digit Recognition',
