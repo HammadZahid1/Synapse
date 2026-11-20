@@ -62,7 +62,7 @@ export function ModelComparisonPage() {
         });
         next.set(cfg.id, { ...result, config: cfg });
         nextStatus.set(cfg.id, result.status);
-      } catch (_e) {
+      } catch {
         nextStatus.set(cfg.id, 'idle');
       }
       setStatuses(new Map(nextStatus));
