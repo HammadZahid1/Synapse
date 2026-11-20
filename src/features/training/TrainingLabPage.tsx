@@ -8,17 +8,13 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Cell,
-  BarChart,
-  Bar,
 } from 'recharts';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 import { useTrainingStore } from '@/stores/trainingStore';
 import { useNetworkStore } from '@/stores/networkStore';
 import { allDatasets } from '@/lib/datasets/generators';
-import { Play, Pause, Stop, RotateCw, LayoutList } from 'lucide-react';
-import { presetConfigs } from '@/lib/ml/network';
+import { Play, Pause, Stop, RotateCw } from 'lucide-react';
 
 type OptimizerOption = 'sgd' | 'momentum' | 'adam';
 type LossOption = 'mse' | 'binary-cross-entropy' | 'categorical-cross-entropy';
