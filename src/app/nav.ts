@@ -1,7 +1,6 @@
 import { type LucideProps } from 'lucide-react';
 import {
   LayoutDashboard,
-  Cpu,
   Activity,
   Network,
   BarChart3,
@@ -16,19 +15,6 @@ import {
 
 type Icon = React.ComponentType<LucideProps>;
 
-const iconMap: Record<string, Icon> = {
-  dashboard: LayoutDashboard,
-  'network-builder': Network,
-  'training-lab': Activity,
-  observatory: Eye,
-  'decision-boundary': Globe,
-  'weight-explorer': CpuChip,
-  'digit-recognition': Bot,
-  datasets: LayoutGrid,
-  'model-comparison': BarChart3,
-  experiments: PieChart,
-  settings: Settings,
-};
 
 export interface NavItem {
   id: string;
