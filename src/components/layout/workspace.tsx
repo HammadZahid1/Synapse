@@ -10,9 +10,7 @@ import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
 import { TrainingLabPage } from '@/features/training/TrainingLabPage';
 import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
 import { DatasetsPage } from '@/features/datasets/DatasetsPage';
-import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
-import { TrainingLabPage } from '@/features/training/TrainingLabPage';
-import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
+import { ExperimentsPage } from '@/features/experiments/ExperimentsPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -115,11 +113,6 @@ const ModelComparisonPage = stubPage(
   'Model Comparison',
   'Compare multiple network architectures and training runs.',
   'page-model-comparison',
-);
-const ExperimentsPage = stubPage(
-  'Experiments',
-  'Create, save, and manage training experiments.',
-  'page-experiments',
 );
 const SettingsPage = stubPage(
   'Settings',
