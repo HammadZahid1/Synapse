@@ -14,7 +14,7 @@ import {
 } from '@/lib/datasets/generators';
 import { validateDataset } from '@/lib/datasets/validation';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 
 const generators: Record<string, (opts?: any) => Dataset2D | RegressionDataset> = {
   xor: () => xorDataset(),
@@ -27,7 +27,7 @@ const generators: Record<string, (opts?: any) => Dataset2D | RegressionDataset> 
 };
 
 export function DatasetsPage() {
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
   const [datasetId, setDatasetId] = React.useState<string>('xor');
   const [sampleCount, setSampleCount] = React.useState(200);
   const [noise, setNoise] = React.useState(0.15);
@@ -40,10 +40,6 @@ export function DatasetsPage() {
 
   const [raw, setRaw] = React.useState<Dataset2D | RegressionDataset | null>(null);
   const [validation, setValidation] = React.useState<{ valid: boolean; errors: string[] } | null>(null);
-
-  React.useEffect(() => {
-    regenerate();
-  }, [datasetId, sampleCount, noise, spread]);
 
   const regenerate = () => {
     const gen = generators[datasetId];
@@ -62,6 +58,10 @@ export function DatasetsPage() {
     setRaw(ds);
     setValidation(validateDataset(ds.inputs, ds.targets));
   };
+
+  React.useEffect(() => {
+    regenerate();
+  }, [datasetId, sampleCount, noise, spread]);
 
   const ds = raw as Dataset2D | null;
 
