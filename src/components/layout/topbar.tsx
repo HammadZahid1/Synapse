@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigate } from '@/app/router';
 import { Button } from '@/components/ui/button';
-import { Menu, Search, Save, Upload, Settings, Clock, Play, Stop } from 'lucide-react';
+import { Menu, Search, Save, Upload, Settings } from 'lucide-react';
 
 interface TopbarProps {
   onOpenMenu: () => void;
@@ -18,7 +18,7 @@ export function Topbar({
   onExport,
   onSettings,
 }: TopbarProps) {
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-50 flex h-14 items-center justify-between gap-2 border-b border-synapse-border bg-synapse-secondary/80 backdrop-blur px-4">
