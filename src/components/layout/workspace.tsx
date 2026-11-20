@@ -106,11 +106,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const DecisionBoundaryPage = stubPage(
-  'Decision Boundary',
-  'Explore 2D classification boundaries trained in the browser.',
-  'page-decision-boundary',
-);
 const DigitRecognitionPage = stubPage(
   'Digit Recognition',
   'Draw digits and classify them with a local model.',
