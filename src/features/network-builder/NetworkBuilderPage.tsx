@@ -2,16 +2,16 @@ import * as React from 'react';
 import { useNavigate } from '@/app/router';
 import { useNetworkStore } from '@/stores/networkStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 import { NetworkCanvas } from './NetworkCanvas';
 import { Add, Minus, Play, RotateCw, Settings as SettingsIcon } from 'lucide-react';
 
 export function NetworkBuilderPage() {
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
   const {
     config,
     network,
-    initializeNetwork,
+    _initializeNetwork,
     setHiddenLayers,
     setInputSize,
     setOutputSize,
@@ -23,7 +23,7 @@ export function NetworkBuilderPage() {
   } = useNetworkStore();
   const presets = Object.entries(__getPresets());
 
-  const [inputVector, setInputVector] = React.useState<string>('');
+  const [inputVector, _setInputVector] = React.useState<string>('');
   const [activations, setActivations] = React.useState<number[][] | null>(null);
   const [selected, setSelected] = React.useState<{
     layer: number;
@@ -261,7 +261,7 @@ function __getPresets() {
 }
 
 function NeuronInspector({
-  selected,
+  _selected,
   info,
 }: {
   selected: { layer: number; neuron: number };
