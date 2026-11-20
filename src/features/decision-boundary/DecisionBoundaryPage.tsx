@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useNetworkStore } from '@/stores/networkStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
-import { Play, Stop, RotateCw, LayoutList } from 'lucide-react';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
+import { Play, Stop, RotateCw } from 'lucide-react';
 import { allDatasets } from '@/lib/datasets/generators';
 
 const GRID = 160;
@@ -33,11 +33,6 @@ export function DecisionBoundaryPage() {
   const datasets = allDatasets();
   const selectedDataset = datasets.find((d) => d.id === datasetId);
   const ds = selectedDataset ? selectedDataset.generate() : null;
-
-  React.useEffect(() => {
-    if (!ds || !network) return;
-    computeBoundary();
-  }, [ds, datasetId, network, hiddenSize]);
 
   const computeBoundary = () => {
     if (!network || !ds) return;
@@ -76,6 +71,11 @@ export function DecisionBoundaryPage() {
     drawPoints(ctx);
     setBoundary({ data: img, bounds: [-RANGE, RANGE, -RANGE, RANGE] });
   };
+
+  React.useEffect(() => {
+    if (!ds || !network) return;
+    computeBoundary();
+  }, [ds, datasetId, network, hiddenSize]);
 
   const drawPoints = (ctx: CanvasRenderingContext2D) => {
     if (!ds) return;
