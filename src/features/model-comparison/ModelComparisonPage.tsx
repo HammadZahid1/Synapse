@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from '@/app/router';
+import { useNavigate } from '@/app/routerHooks';
 import { NeuralNetwork, presetConfigs } from '@/lib/ml/network';
 import { TrainingEngine } from '@/lib/ml/training';
 import { allDatasets } from '@/lib/datasets/generators';

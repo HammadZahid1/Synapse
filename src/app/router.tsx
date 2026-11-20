@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { createContext, useState, useCallback, ReactNode } from 'react';
 
 import { NAV_ITEMS } from './nav';
 
@@ -8,7 +8,7 @@ interface RouterContextValue {
   isActive: (to: string) => boolean;
 }
 
-const RouterContext = createContext<RouterContextValue | null>(null);
+export const RouterContext = createContext<RouterContextValue | null>(null);
 
 export function Router({
   children,
@@ -35,14 +35,6 @@ export function Router({
   );
 }
 
-export function useRouter() {
-  const ctx = useContext(RouterContext);
-  if (!ctx) {
-    throw new Error('useRouter must be used within a Router');
-  }
-  return ctx;
-}
-
 export function Route({
   path,
   children,
@@ -50,19 +42,11 @@ export function Route({
   path: string;
   children: ReactNode;
 }) {
-  const { _pathname, isActive } = useRouter();
+  const { isActive } = useRouter();
   if (!isActive(path)) {
     return null;
   }
   return <>{children}</>;
-}
-
-export function usePathname() {
-  return useRouter().pathname;
-}
-
-export function useNavigate() {
-  return useRouter().navigate;
 }
 
 export { NAV_ITEMS };

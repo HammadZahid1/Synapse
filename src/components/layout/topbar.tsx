@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from '@/app/router';
+import { useNavigate } from '@/app/routerHooks';
 import { Button } from '@/components/ui/button';
 import { Menu, Search, Save, Upload, Settings, Play } from 'lucide-react';
 

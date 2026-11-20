@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from '@/app/router';
+import { useNavigate } from '@/app/routerHooks';
 import { NAV_ITEMS } from '@/app/nav';
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronLeft, ChevronRight } from 'lucide-react';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from '@/app/router';
+import { useNavigate } from '@/app/routerHooks';
 import { useExperimentStore } from '@/stores/experimentStore';
 import { useNetworkStore } from '@/stores/networkStore';
 import { Button } from '@/components/ui/button';

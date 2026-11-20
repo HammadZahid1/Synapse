@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from '@/app/router';
+import { useNavigate } from '@/app/routerHooks';
 import { presetConfigs } from '@/lib/ml/network';
 import { allDatasets } from '@/lib/datasets/generators';
 import { useNetworkStore } from '@/stores/networkStore';

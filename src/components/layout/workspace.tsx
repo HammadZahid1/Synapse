@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Sidebar } from '@/components/layout/sidebar';
 import { Topbar } from '@/components/layout/topbar';
-import { Router, Route, usePathname } from '@/app/router';
+import { Router, Route } from '@/app/router';
+import { usePathname } from '@/app/routerHooks';
 import { Panel } from '@/components/ui/panel';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPage';
