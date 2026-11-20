@@ -1,6 +1,12 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
-import { RouterContext } from './router';
+export interface RouterContextValue {
+  pathname: string;
+  navigate: (to: string) => void;
+  isActive: (to: string) => boolean;
+}
+
+export const RouterContext = createContext<RouterContextValue | null>(null);
 
 export function useRouter() {
   const ctx = useContext(RouterContext);

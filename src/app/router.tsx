@@ -1,14 +1,7 @@
-import { createContext, useState, useCallback, ReactNode } from 'react';
+import { useState, useCallback, ReactNode } from 'react';
 
+import { RouterContext } from './routerHooks';
 import { NAV_ITEMS } from './nav';
-
-interface RouterContextValue {
-  pathname: string;
-  navigate: (to: string) => void;
-  isActive: (to: string) => boolean;
-}
-
-export const RouterContext = createContext<RouterContextValue | null>(null);
 
 export function Router({
   children,
