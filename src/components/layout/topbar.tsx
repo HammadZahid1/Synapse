@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigate } from '@/app/router';
 import { Button } from '@/components/ui/button';
-import { Menu, Search, Save, Upload, Settings } from 'lucide-react';
+import { Menu, Search, Save, Upload, Settings, Play } from 'lucide-react';
 
 interface TopbarProps {
   onOpenMenu: () => void;

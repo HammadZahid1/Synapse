@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Sidebar } from '@/components/layout/sidebar';
 import { Topbar } from '@/components/layout/topbar';
-import { Router, Route, usePathname, NAV_ITEMS } from '@/app/router';
+import { Router, Route, usePathname } from '@/app/router';
 import { Panel } from '@/components/ui/panel';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
 import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPage';
@@ -18,7 +18,7 @@ import { SettingsPage } from '@/features/settings/SettingsPage';
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [mobileDrawer, setMobileDrawer] = React.useState(false);
-  const pathname = usePathname();
+  const _pathname = usePathname();
 
   return (
     <Router>
