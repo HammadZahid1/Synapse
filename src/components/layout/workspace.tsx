@@ -4,6 +4,7 @@ import { Topbar } from '@/components/layout/topbar';
 import { Router, Route, usePathname, NAV_ITEMS } from '@/app/router';
 import { Panel } from '@/components/ui/panel';
 import { DashboardPage } from '@/features/dashboard/DashboardPage';
+import { NetworkBuilderPage } from '@/features/network-builder/NetworkBuilderPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -102,11 +103,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const NetworkBuilderPage = stubPage(
-  'Network Builder',
-  'Visually construct and configure neural network architectures.',
-  'page-network-builder',
-);
 const TrainingLabPage = stubPage(
   'Training Lab',
   'Train neural networks locally with real backpropagation.',
