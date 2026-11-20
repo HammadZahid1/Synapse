@@ -9,6 +9,10 @@ import { WeightExplorerPage } from '@/features/weight-explorer/WeightExplorerPag
 import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
 import { TrainingLabPage } from '@/features/training/TrainingLabPage';
 import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
+import { DatasetsPage } from '@/features/datasets/DatasetsPage';
+import { ObservatoryPage } from '@/features/observatory/ObservatoryPage';
+import { TrainingLabPage } from '@/features/training/TrainingLabPage';
+import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognitionPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -107,11 +111,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const DatasetsPage = stubPage(
-  'Dataset Lab',
-  'Generate and inspect machine learning datasets.',
-  'page-datasets',
-);
 const ModelComparisonPage = stubPage(
   'Model Comparison',
   'Compare multiple network architectures and training runs.',
