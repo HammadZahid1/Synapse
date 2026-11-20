@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useNavigate } from '@/app/routerHooks';
 import { NAV_ITEMS } from '@/app/nav';
 import { Button } from '@/components/ui/button';
-import { Menu, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface SidebarProps {
   isCollapsed: boolean;
