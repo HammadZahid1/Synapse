@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useNetworkStore } from '@/stores/networkStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent, PanelHeader } from '@/components/ui/panel';
-import { Play, Stop, RotateCw, Eraser, RotateCcw } from 'lucide-react';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
+import { Play, Stop, Eraser, RotateCcw } from 'lucide-react';
 
 const CANVAS_SIZE = 280;
 const DIGIT_SIZE = 28;
@@ -20,7 +20,7 @@ export function DigitRecognitionPage() {
     status,
     startTraining,
     stopTraining,
-    resetTraining,
+    _resetTraining,
   } = useTrainingStore();
 
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
@@ -32,7 +32,7 @@ export function DigitRecognitionPage() {
   const [confidences, setConfidences] = React.useState<number[] | null>(null);
   const [modelTrained, setModelTrained] = React.useState(false);
 
-  const [isActive, setIsActive] = React.useState(false);
+  const [_isActive, setIsActive] = React.useState(false);
 
   const startDraw = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDrawing(true);
