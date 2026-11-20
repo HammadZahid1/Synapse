@@ -1,7 +1,6 @@
 import {
   stableSoftmax,
   sigmoidDerivativeFromOutput,
-  scale,
   map,
   Matrix,
 } from '@/lib/math/matrix';
