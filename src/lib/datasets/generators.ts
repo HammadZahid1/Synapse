@@ -104,7 +104,7 @@ export function gaussianClustersDataset(options: {
       targets.push([c]);
     }
   }
-  const classes = clusters.map((c) => `Cluster ${c}`);
+  const classes = Array.from({ length: clusters }, (_, c) => `Cluster ${c}`);
   return {
     inputs,
     targets,
