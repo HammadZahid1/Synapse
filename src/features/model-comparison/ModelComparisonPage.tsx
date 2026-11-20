@@ -16,7 +16,7 @@ type ModelConfig = {
 };
 
 export function ModelComparisonPage() {
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
   const [configs, setConfigs] = React.useState<ModelConfig[]>([
     { id: 'a', name: 'Model A', preset: 'xor', datasetId: 'xor' },
     { id: 'b', name: 'Model B', preset: 'two-layer', datasetId: 'xor' },
@@ -62,7 +62,7 @@ export function ModelComparisonPage() {
         });
         next.set(cfg.id, { ...result, config: cfg });
         nextStatus.set(cfg.id, result.status);
-      } catch (e) {
+      } catch (_e) {
         nextStatus.set(cfg.id, 'idle');
       }
       setStatuses(new Map(nextStatus));
