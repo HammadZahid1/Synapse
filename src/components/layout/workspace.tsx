@@ -3,6 +3,7 @@ import { Sidebar } from '@/components/layout/sidebar';
 import { Topbar } from '@/components/layout/topbar';
 import { Router, Route, usePathname, NAV_ITEMS } from '@/app/router';
 import { Panel } from '@/components/ui/panel';
+import { DashboardPage } from '@/features/dashboard/DashboardPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -101,11 +102,6 @@ function stubPage(title: string, description: string, id: string) {
   });
 }
 
-const DashboardPage = stubPage(
-  'Dashboard',
-  'Welcome to SYNAPSE. Your neural network laboratory.',
-  'page-dashboard',
-);
 const NetworkBuilderPage = stubPage(
   'Network Builder',
   'Visually construct and configure neural network architectures.',
