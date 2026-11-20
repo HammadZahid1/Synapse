@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { useNavigate } from '@/app/router';
-import { NAV_ITEMS } from '@/app/nav';
 import { presetConfigs } from '@/lib/ml/network';
 import { allDatasets } from '@/lib/datasets/generators';
 import { useNetworkStore } from '@/stores/networkStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import { useUIStore } from '@/stores/uiStore';
 import { Button } from '@/components/ui/button';
-import { Panel, PanelTitle, PanelContent } from '@/components/ui/panel';
+import { Panel, PanelTitle, PanelContent, PanelHeader, PanelDescription } from '@/components/ui/panel';
 
 export function DashboardPage() {
   const navigate = useNavigate();
   const { config, loadPreset, reset, initializeNetwork } = useNetworkStore();
-  const { status, history, resetTraining } = useTrainingStore();
+  const { status, history, _resetTraining } = useTrainingStore();
   const { addNotification } = useUIStore();
   const presets = presetConfigs();
   const datasets = allDatasets();
