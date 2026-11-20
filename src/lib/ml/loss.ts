@@ -1,10 +1,8 @@
 import {
   Matrix,
   subtract,
-  multiply,
   scale,
   map,
-  mean,
 } from '@/lib/math/matrix';
 
 export type LossName = 'mse' | 'binary-cross-entropy' | 'categorical-cross-entropy';
