@@ -12,6 +12,8 @@ import { DigitRecognitionPage } from '@/features/digit-recognition/DigitRecognit
 import { DatasetsPage } from '@/features/datasets/DatasetsPage';
 import { ExperimentsPage } from '@/features/experiments/ExperimentsPage';
 import { ModelComparisonPage } from '@/features/model-comparison/ModelComparisonPage';
+import { DecisionBoundaryPage } from '@/features/decision-boundary/DecisionBoundaryPage';
+import { SettingsPage } from '@/features/settings/SettingsPage';
 
 export function WorkspaceLayout() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -91,29 +93,5 @@ export function WorkspaceLayout() {
     </Router>
   );
 }
-
-function stubPage(title: string, description: string, id: string) {
-  return React.forwardRef(function StubPage(
-    _props: unknown,
-    ref: React.ForwardedRef<HTMLDivElement>,
-  ) {
-    return (
-      <div ref={ref} id={id} className="space-y-4">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-6 rounded-full bg-synapse-border" />
-          <h1 className="text-lg font-semibold text-synapse-ink">{title}</h1>
-        </div>
-        <p className="text-sm text-synapse-muted">{description}</p>
-        <hr className="border-synapse-border" />
-      </div>
-    );
-  });
-}
-
-const SettingsPage = stubPage(
-  'Settings',
-  'Configure appearance, animation, and training defaults.',
-  'page-settings',
-);
 
 export default WorkspaceLayout;
